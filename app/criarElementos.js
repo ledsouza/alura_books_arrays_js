@@ -39,3 +39,18 @@ function criarContainerLivro(livro) {
 
     return containerLivro;
 }
+
+function criarContainerLivrosDisponiveis(livros) {
+    const valorTotal = livros.reduce((soma, livro) => soma + livro.preco, 0);
+
+    const container = document.createElement("div");
+    container.classList.add("livros__disponiveis");
+
+    const paragraph = document.createElement("p");
+    paragraph.innerHTML = `Todos os livros disponíveis por R$ <span id="valor">${valorTotal.toFixed(
+        2
+    )}</span>`.replace(".", ",");
+
+    container.append(paragraph);
+    return container;
+}
