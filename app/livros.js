@@ -1,5 +1,6 @@
 const secaoLivros = document.querySelector("#livros");
 const botoes = document.querySelectorAll(".btn");
+const btnOrdernarPorPreco = document.getElementById("btnOrdenarPorPreco");
 
 function exibirLivros(livros) {
     secaoLivros.innerHTML = "";
@@ -28,3 +29,12 @@ function filtrarPorCategoria(valorFiltro) {
 botoes.forEach((botao) => {
     botao.addEventListener("click", () => filtrarPorCategoria(botao.getAttribute("value")));
 });
+
+function ordernarLivrosPorPreco() {
+    livros.sort((a, b) => {
+        return a.preco - b.preco;
+    });
+    exibirLivros(livros);
+}
+
+btnOrdernarPorPreco.addEventListener("click", ordernarLivrosPorPreco);
