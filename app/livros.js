@@ -19,9 +19,10 @@ function aplicarDesconto(livros, desconto) {
 
 function filtrarPorCategoria(valorFiltro) {
     if (valorFiltro) {
-        const livrosFiltrados = livros.filter((livro) => {
-            return valorFiltro === livro.categoria;
-        });
+        const livrosFiltrados =
+            valorFiltro === "disponivel"
+                ? livros.filter((livro) => livro.quantidade > 0)
+                : livros.filter((livro) => valorFiltro === livro.categoria);
         exibirLivros(livrosFiltrados);
     }
 }
