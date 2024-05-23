@@ -4,6 +4,7 @@ function criarContainerLivro(livro) {
 
     const imgLivro = document.createElement("img");
     imgLivro.classList.add("livro__imagens");
+    imgLivro.classList.toggle("indisponivel", livro.quantidade <= 0);
     imgLivro.setAttribute("src", livro.imagem);
     imgLivro.setAttribute("alt", livro.alt);
 
